@@ -31,7 +31,6 @@ A log minden futtatás után automatikusan létrejön a cél almappában (a mega
 
 
 Fájlnév-ütközés kezelése:
-
 Ha már létezik az adott fájlnév a cél mappában, a program automatikusan sorszámozással hoz létre egyedi nevű másolatot (pl. file_1.pdf).
 
 
@@ -48,7 +47,7 @@ Kiterjesztés megadása
 Állapotjelző sáv a folyamat közbeni és utáni visszajelzéshez
 
 
-Fájlok
+Fájlok:
 
 main.py - a program indító fájlja
 
@@ -57,7 +56,7 @@ gui.py - a felhasználói felület kezelése
 file_manager.py - a fájlrendezés és logolás végrehajtása
 
 
-GUI működés
+GUI működés:
 
 Forrás mappa tallózása: Kiválasztod a mappát, ahonnan a fájlokat áthelyezed.
 
@@ -72,7 +71,7 @@ Log megnyitása gomb: Megnyitja a legutolsó log fájlt Jegyzettömbben (Windows
 Kilépés gomb: Bezárja az alkalmazást.
 
 
-Követelmények
+Követelmények:
 
 Python 3.x
 
