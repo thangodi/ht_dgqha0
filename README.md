@@ -1,5 +1,5 @@
 Ez a fájlrendező alkalmazás lehetővé teszi, hogy különböző kiterjesztésű fájlokat mappákba rendszerezzen. 
-Támogatja a Windows rendszereket, logolja a műveleteket, és egy GUI felületen keresztül vezérelhető.
+Támogatja a Windows rendszereket, logolja a műveleteket, és egy GUI felületen keresztül vezérelhető. <\n>
 
 Fő funkciói:
   Kiterjesztés alapú fájlrendezés:
