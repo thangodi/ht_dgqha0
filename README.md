@@ -8,11 +8,17 @@ Fő funkciói:
     Létrehoz dátummal és pontos idővel ellátott logfájlt a cél almappában.
     Naplózza a mozgatott fájlokat, futásidőt és a művelet kezdési idejét.
     A log tartalmazza:
+    
       PID (a futó Python folyamat azonosítója)
+    
       Felhasználónév
+      
       A művelet kezdési ideje
+      
       Forrás és cél mappa
+      
       Áthelyezett fájlok listája
+      
       Futásidő
         A log minden futtatás után automatikusan létrejön a cél almappában (a megadott kiterjesztés mappán belül).
   Fájlnév-ütközés kezelése:
