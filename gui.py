@@ -3,28 +3,28 @@ from tkinter import messagebox, filedialog
 import threading
 import os
 import subprocess
-from file_manager import FileManager
+from file_manager import FileManager_HT_DGQHA0
 
-class FileSorterGUI:
+class FileSorterGUI_HT_DGQHA0:
     def __init__(self):
-        self.manager = FileManager()
+        self.manager = FileManager_HT_DGQHA0()
         self.root = tk.Tk()
-        self.root.title("Fájlrendező – Forrás és Cél tallózás")
-        self.root.geometry("680x300")
+        self.root.title("Fájlrendező")
+        self.root.geometry("680x250")
         self.root.resizable(False, False)
 
-        self.last_log_path = None  # ÚJ: Az utolsó log fájl helye
+        self.last_log_path = None
 
         frm_src = tk.Frame(self.root)
         frm_src.pack(pady=(12,6), padx=12, fill="x")
-        tk.Label(frm_src, text="Forrás mappa:").grid(row=0, column=0, sticky="w")
+        tk.Label(frm_src, text="Forrás mappa (ahol a gyűjtést el kell végezni):").grid(row=0, column=0, sticky="w")
         self.src_entry = tk.Entry(frm_src, width=54)
         self.src_entry.grid(row=1, column=0, sticky="w")
         tk.Button(frm_src, text="Tallózás", command=self.browse_source).grid(row=1, column=1, padx=(8,0))
 
         frm_dst = tk.Frame(self.root)
         frm_dst.pack(pady=(6,6), padx=12, fill="x")
-        tk.Label(frm_dst, text="Cél mappa (ide jön létre a fájlokkal az almappa):").grid(row=0, column=0, sticky="w")
+        tk.Label(frm_dst, text="Cél mappa (ahol létrejön a fájlokkal az almappa):").grid(row=0, column=0, sticky="w")
         self.dst_entry = tk.Entry(frm_dst, width=54)
         self.dst_entry.grid(row=1, column=0, sticky="w")
         tk.Button(frm_dst, text="Tallózás", command=self.browse_target).grid(row=1, column=1, padx=(8,0))
@@ -40,10 +40,10 @@ class FileSorterGUI:
 
         self.btn_open_log = tk.Button(frm_ctrl, text="Log megnyitása", width=14,
                                       state="disabled", command=self.open_last_log)
-        self.btn_open_log.grid(row=0, column=3, padx=(6,8))
+        self.btn_open_log.grid(row=1, column=3, padx=(6,8))
 
         self.btn_exit = tk.Button(frm_ctrl, text="Kilépés", width=12, command=self.root.destroy)
-        self.btn_exit.grid(row=0, column=4)
+        self.btn_exit.grid(row=1, column=4)
 
         self.status_var = tk.StringVar(value="Készen áll.")
         self.status_label = tk.Label(self.root, textvariable=self.status_var, anchor="w", justify="left")
@@ -64,7 +64,7 @@ class FileSorterGUI:
     def open_last_log(self):
         if self.last_log_path and os.path.exists(self.last_log_path):
             try:
-                os.startfile(self.last_log_path)  # Windows Notepad
+                os.startfile(self.last_log_path)
             except Exception:
                 messagebox.showerror("Hiba", "Nem sikerült megnyitni a log fájlt.")
         else:
@@ -99,8 +99,8 @@ class FileSorterGUI:
         try:
             moved_count, log_path = self.manager.sort_by_extension(ext=ext, src_dir=src, target_root=dst)
 
-            self.last_log_path = log_path  # ÚJ: eltároljuk a logot
-            self.btn_open_log.config(state="normal")  # Aktiváljuk a gombot
+            self.last_log_path = log_path
+            self.btn_open_log.config(state="normal")
 
             self.status_var.set(f"Kész: {moved_count} fájl áthelyezve. Log: {log_path}")
             messagebox.showinfo("Kész", f"{moved_count} fájl áthelyezve.\n\nLog fájl:\n{log_path}")

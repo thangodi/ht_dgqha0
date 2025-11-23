@@ -3,7 +3,7 @@ import shutil
 import time
 from datetime import datetime
 
-class FileManager:
+class FileManager_HT_DGQHA0:
 
     def _safe_username(self):
         try:
